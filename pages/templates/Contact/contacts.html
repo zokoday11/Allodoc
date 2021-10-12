@@ -1,0 +1,114 @@
+{% extends 'shared/base.html' %}
+
+{% load static %}
+
+{% block title%}Allodoc - Contactez nous{% endblock %}
+
+{% block content %}
+
+	<main>
+		<div id="map_contact"></div>
+		<!-- /map -->
+		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d43539.09422486409!2d2.2861916676234477!3d48.85954895577135!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e2964e34e2d%3A0x8ddca9ee380ef7e0!2sTour%20Eiffel!5e0!3m2!1sfr!2sfr!4v1618365819126!5m2!1sfr!2sfr" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+		<div class="container margin_60_35">
+			<div class="row">
+				<aside class="col-lg-3 col-md-4">
+					<div id="contact_info">
+						<h3>Contacts</h3>
+						<p>
+							11  Avenue - Paris,France <br> + 33 (0) 18093 3400<br>
+							<a href="#"> info@allodoc.com </a>
+						</p>
+						<h4>Obtenir des directions </h4>
+
+						<form action="http://maps.google.com/maps" method="get" target="_blank">
+							<div class="form-group">
+								<input type="text" name="saddr" placeholder="Paris" class="form-control styled">
+								<input type="hidden" name="daddr" value="Paris">
+								<!-- Write here your end point -->
+							</div>
+							<input type="submit" value="Get directions" class="btn_1 add_bottom_45">
+						</form>
+						<ul>
+							<li><strong> Administration </strong>
+								<a href="tel://003823932342"> + 33 (0) 18093 3400 </a><br><a href="tel://003823932342"> admin@findoctor.com </a><br>
+
+							</li>
+							<li><strong> General questions </strong>
+								<a href="tel://003823932342"> + 33 (0) 18093 3400 </a><br><a href="tel://003823932342"> questions@findoctor.com</a><br>
+							</li>
+						</ul>
+					</div>
+				</aside>
+				<!--/aside -->
+				<div class=" col-lg-8 col-md-8 ml-auto">
+					<div class="box_general">
+						<h3>Contactez nous</h3>
+						<div>
+							<div id="message-contact"></div>
+							<form method="post" action="assets/contact.php" id="contactform">
+								<div class="row">
+									<div class="col-md-6 col-sm-6">
+										<div class="form-group">
+											<input type="text" class="form-control" id="name_contact" name="name_contact" placeholder="Nom">
+										</div>
+									</div>
+									<div class="col-md-6 col-sm-6">
+										<div class="form-group">
+											<input type="text" class="form-control" id="lastname_contact" name="lastname_contact" placeholder="Prénom">
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-d-6 col-sm-6">
+										<div class="form-group">
+											<input type="email" id="email_contact" name="email_contact" class="form-control" placeholder="Email">
+										</div>
+									</div>
+									<div class="col-md-6 col-sm-6">
+										<div class="form-group">
+											<input type="text" id="phone_contact" name="phone_contact" class="form-control" placeholder="Numéro de téléphone">
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<div class="form-group">
+											<textarea rows="5" id="message_contact" name="message_contact" class="form-control" style="height:100px;" placeholder="Votre message"></textarea>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group">
+											<input type="text" id="verify_contact" class=" form-control" placeholder="remplacer par catcha ou supprimer =">
+										</div>
+									</div>
+								</div>
+								<input type="submit" value="Envoyer" class="btn_1 add_top_20" id="submit-contact">
+							</form>
+						</div>
+						<!-- /col -->
+					</div>
+				</div>
+				<!-- /col -->
+			</div>
+			<!-- End row -->
+		</div>
+		<!-- /container -->
+	</main>
+	<!-- /main -->
+	
+{% endblock %}
+
+
+
+{% block scripts %}
+    <!-- SPECIFIC SCRIPTS -->
+	<script src="{% static 'assets/validate.js' %}"></script>
+	<script src="http://maps.googleapis.com/maps/api/js"></script>
+	<script src="{% static 'js/mapmarker.jquery.js' %}"></script>
+	<script src="{% static 'js/mapmarker_contacts_func.js' %}"></script>
+{% endblock %}
+
+

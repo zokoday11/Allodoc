@@ -1,0 +1,205 @@
+{% extends 'Shared/base.html' %}
+
+{% block title %}FAQ{% endblock %}
+
+{% block content %}
+
+	<main>
+
+		<!-- /breadcrumb -->
+
+		<div class="container margin_60">
+			<div class="row">
+				<aside class="col-lg-3" id="sidebar">
+						<div class="box_style_cat" id="faq_box">
+							<ul id="cat_nav">
+								<li><a href="#payment" class="active"><i class="icon_document_alt"></i>Paiements</a></li>
+								<li><a href="#tips"><i class="icon_document_alt"></i>Réservation</a></li>
+								<li><a href="#reccomendations"><i class="icon_document_alt"></i>Termes et conditions</a></li>
+							</ul>
+						</div>
+						<!--/sticky -->
+				</aside>
+				<!--/aside -->
+				
+				<div class="col-lg-9" id="faq">
+					<h4 class="nomargin_top">Paiements</h4>
+					<div role="tablist" class="add_bottom_45 accordion" id="payment">
+						<div class="card">
+							<div class="card-header" role="tab">
+								<h5 class="mb-0">
+									<a data-toggle="collapse" href="#collapseOne_payment" aria-expanded="true"><i class="indicator icon_minus_alt2"></i>Quel est le montant de l'abonnement ?</a>
+								</h5>
+							</div>
+
+							<div id="collapseOne_payment" class="collapse show" role="tabpanel" data-parent="#payment">
+								<div class="card-body">
+									<p> L'abonnement Medicalib pour les professionnels de santé est à partir de 22.5€/mois avec un engagement de 12 mois ou bien de 25€/mois sans engagement.<br>
+Vous pouvez rajouter des options à votre abonnement afin de faciliter les prises de rendez-vous avec les patients ou bien simplifier les échanges avec vos collègues.<br>
+</p>
+
+								</div>
+							</div>
+						</div>
+						<!-- /card -->
+						<div class="card">
+							<div class="card-header" role="tab">
+								<h5 class="mb-0">
+									<a class="collapsed" data-toggle="collapse" href="#collapseTwo_payment" aria-expanded="false">
+										<i class="indicator icon_plus_alt2"></i>Quels sont les moyens de paiement disponibles ?</a>
+								</h5>
+							</div>
+							<div id="collapseTwo_payment" class="collapse" role="tabpanel" data-parent="#payment">
+								<div class="card-body">
+									<p>
+                                        En proposant le paiement via une carte bancaire, Paypal et virement, sachez que vous couvrez 99% des internautes. Ce qui signifie que 99% des internautes pourront effectuer un achat sur votre site grâce à ces 3 moyens de paiement. <br>
+
+Chez Stripe, il y a de nombreux moyens de paiement disponible:<br>
+<br>
+Le paiement par CB (Mastercard, VISA, American Express…)<br>
+Le paiement par virement.<br>
+Le paiement en plusieurs mensualités.<br>
+Le paiement par SEPA, que ce soit pour des paiements one-shot et régulier.
+                                    </p>
+								</div>
+							</div>
+						</div>
+						<!-- /card -->
+
+						<!-- /card -->
+					</div>
+					<!-- /accordion payment -->
+					
+					<h4 class="nomargin_top">Réservation</h4>
+					<div role="tablist" class="add_bottom_45 accordion" id="tips">
+						<div class="card">
+							<div class="card-header" role="tab">
+								<h5 class="mb-0">
+									<a data-toggle="collapse" href="#collapseOne_tips" aria-expanded="true"><i class="indicator icon_plus_alt2"></i>
+                                    Rendez-vous pris au cabinet : email de confirmation et email / SMS de rappel</a>
+								</h5>
+							</div>
+
+							<div id="collapseOne_tips" class="collapse" role="tabpanel" data-parent="#tips">
+								<div class="card-body">
+<p> Le rendez-vous a été pris directement au cabinet de votre praticien, ou par téléphone, vous pouvez recevoir des notifications : <br>
+
+Si le rendez-vous est enregistré sur une fiche patient rattachée à votre compte, vous recevez les notifications de rendez-vous <br>au même titre que si vous aviez pris le rendez-vous en ligne et le rendez-vous est visible sur votre compte.<br>
+
+
+    Si le rendez-vous est enregistré sur une fiche patient rattachée à votre compte mais que le praticien a fait le choix de désactiver<br> les notifications mails et/ou SMS sur le motif concerné ou sur son agenda Allodoc, alors vous ne recevrez aucune notification mais le rendez-vous est visible sur votre compte ;<br>
+
+
+
+Si vous ne recevez pas de notifications et/ou que le rendez-vous n'est pas visible sur votre compte, cela signifie <br>que le rendez-vous n'est pas enregistré sur une fiche patient rattachée à votre compte. La fiche sur laquelle est notée le rendez-vous ne contient ni votre adresse email ni votre numéro de téléphone. </p>
+								</div>
+							</div>
+						</div>
+						<!-- /card -->
+						<div class="card">
+							<div class="card-header" role="tab">
+								<h5 class="mb-0">
+									<a class="collapsed" data-toggle="collapse" href="#collapseTwo_tips" aria-expanded="false">
+										<i class="indicator icon_plus_alt2"></i>Notifications frauduleuses (tentatives de phishing)
+
+									</a>
+								</h5>
+							</div>
+							<div id="collapseTwo_tips" class="collapse" role="tabpanel" data-parent="#tips">
+								<div class="card-body">
+<p>
+    J’ai reçu un mail de la part de Allodoc et son contenu ne semble pas authentique. Est-ce un email frauduleux ? <br>
+
+Si vous ne reconnaissez pas les informations contenues dans un message (email ou SMS), <br>il s’agit peut-être d’une tentative de phishing (ou tentative “d’hameçonnage”) et non d’un message envoyé par Allodoc.
+
+Pour rappel, le phishing est une pratique frauduleuse visant à récupérer certaines informations <br>personnelles d’un internaute en usurpant l’identité d’un tiers de confiance (plus d’infos ici sur le phishing).
+
+Nous vous recommandons dans ce cas d’être extrêmement vigilant et de suivre les indications figurant sur cette page.
+
+Il se peut également que cet email soit un véritable email envoyé par Allodoc  et qu’il ait été envoyé suite à une erreur humaine. Cliquez ici pour obtenir plus d’informations sur ce cas de figure.
+</p>								</div>
+							</div>
+						</div>
+						<!-- /card -->
+
+						<!-- /card -->
+					</div>
+					<!-- /accordion suggestions -->
+					
+					<h4 class="nomargin_top">Termes et conditions</h4>
+					<div role="tablist" class="add_bottom_45 accordion" id="reccomendations">
+						<div class="card">
+							<div class="card-header" role="tab">
+								<h5 class="mb-0">
+									<a data-toggle="collapse" href="#collapseOne_reccomendations" aria-expanded="true"><i class="indicator icon_plus_alt2"></i>Introdocution</a>
+								</h5>
+							</div>
+
+							<div id="collapseOne_reccomendations" class="collapse" role="tabpanel" data-parent="#reccomendations">
+								<div class="card-body">
+
+<p>
+    1. Acceptation des termes et conditions
+Pour utiliser les services, vous devez d'abord accepter les conditions d'utilisation. Vous ne pouvez pas utiliser les services si vous n'acceptez pas les conditions d'utilisation.
+
+Vous pouvez accepter les conditions générales en utilisant simplement les services. Vous reconnaissez et acceptez que Allodoc considérera que votre utilisation des Services constitue une acceptation des Conditions générales dès le début de cette utilisation.
+
+Vous ne pouvez pas utiliser les Services ou accepter les Termes et Conditions si (a) vous n'êtes pas légalement qualifié pour conclure un contrat contraignant avec Allodoc , ou (b) vous êtes interdit ou légalement exclu de recevoir ou d'utiliser les Services, conformément à la législation de votre pays de résidence ou à partir duquel vous accédez ou utilisez les Services.
+
+Nous vous recommandons d’imprimer ou de sauvegarder une copie locale des conditions générales dans vos fichiers.
+
+2. Changements dans les termes et conditions
+Allodoc  se réserve le droit de modifier les conditions d'utilisation à tout moment, par exemple pour prendre en compte des modifications de la législation ou des réglementations ou des fonctionnalités des services proposés par le biais du service. Pour cette raison, vous devez consulter les conditions générales régulièrement pour vérifier ces modifications. La version modifiée des Conditions générales (les «Conditions générales modifiées») sera publiée sur le site Web ou mise à votre disposition au sein du Service (pour toutes conditions modifiées supplémentaires). Si vous n'acceptez pas les conditions générales modifiées, vous devez cesser d'utiliser le service. Votre utilisation continue du service après la publication des conditions générales modifiées constituera votre acceptation des conditions générales modifiées.
+
+Allodoc  peut compléter les présentes Conditions d'utilisation au moyen de conditions particulières régissant l'utilisation de certains services ou produits susceptibles d'être proposés sur le site Web.
+
+La collecte et le traitement de vos données personnelles ainsi que l'exercice de vos droits sur ces données seront régis par les présentes conditions d'utilisation, la notice légale et la politique de confidentialité.
+
+3. Restrictions générales d'utilisation
+Tout le contenu de ce site Web est sous licence "Creative Commons Reconocimiento-NoComercial-SinObraDerivada 3.0 Unported". IL EST FINALEMENT INTERDIT et, par conséquent, ses conséquences seront votre seule responsabilité, l'accès ou l'utilisation du Service à des fins illégales ou non autorisées, avec ou sans finalité économique, et plus spécifiquement et sans caractère limitatif, C'est interdit:
+
+Hébergez, stockez, divulguez, publiez, distribuez ou partagez tout contenu pouvant être considéré comme une violation des droits fondamentaux à l'honneur, à l'image et à la vie privée et familiale des tiers, et plus particulièrement des mineurs.
+
+Hébergez, stockez, divulguez, publiez, distribuez ou partagez des images ou des photographies qui collectent des images ou des données personnelles de tiers sans avoir obtenu le consentement approprié de leurs propriétaires.
+
+Hébergement, stockage, divulgation, publication, distribution ou partage de tout contenu portant atteinte à la confidentialité des communications, à la violation des droits de propriété industrielle et intellectuelle ou aux règles réglementaires en matière de protection des données personnelles.
+
+Reproduire, distribuer, rendre disponible ou partager de quelque manière que ce soit, à l'intérieur ou à l'extérieur du réseau Allodoc , des photographies ou des images mises à disposition par d'autres utilisateurs de MEDICINA INTERNA DEXEUS:
+
+Accueillir, stocker, divulguer, publier, distribuer ou partager tout matériel ou toute information illégale, raciste, obscène, pornographique, abusive, diffamatoire, trompeuse, frauduleuse ou contraire à la moralité ou à l'ordre public.
+
+Utilisez le service pour insulter, diffamer, intimider, violer son image ou harceler d'autres utilisateurs.
+
+Utilisez le site Web ou l'un des services Allodoc illégalement, ou de toute autre manière pour laquelle le service ou le site Web peut être endommagé, surchargé ou endommagé.
+
+Introduisez des virus informatiques, des fichiers défectueux, ou hébergez, stockez, distribuez ou partagez tout autre matériel ou programme informatique susceptible d'endommager ou d'altérer le contenu, les programmes ou les systèmes de Allodoc .
+
+Utilisez le Service pour envoyer de la publicité ou des communications commerciales, pour émettre des messages à des fins publicitaires ou pour collecter des données aux mêmes fins.
+
+</p>								</div>
+							</div>
+						</div>
+						<!-- /card -->
+
+						<!-- /card -->
+
+						<!-- /card -->
+					</div>
+					<!-- /accordion Reccomendations -->
+					
+
+					<!-- /accordion Booking -->
+
+				</div>
+				<!-- /col -->
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+	</main>
+	<!-- /main -->
+
+{% endblock %}
+
+
+

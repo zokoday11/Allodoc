@@ -1,0 +1,89 @@
+{% extends 'Shared/base.html' %}
+
+{% load widget_tweaks %}
+
+{% load static %}
+
+{% block title %}Inscription des docteurs{% endblock %}
+
+{% block content %}
+	<main>
+		<div id="hero_register">
+			<div class="container margin_120_95">
+				<div class="row">
+					<div class="col-lg-6">
+						<h1>Il est temps de vous trouver !</h1>
+						<p class="lead"> <b>Équipez-vous des solutions Allodoc</b> <br>
+Souscription aux solutions Allodoc sans engagement
+Plus de 150 000 praticiens utilisateurs de Allodoc <br>
+1 700 salariés à votre service plus que jamais.</p>
+						<div class="box_feat_2">
+							<i class="pe-7s-map-2"></i>
+							<h3>Laissez les patients vous trouver !</h3>
+							<p>Recevez directement sur votre téléphone des demandes de soins pour de nouveaux patients, situés dans votre secteur d’intervention. </p>
+						</div>
+						<div class="box_feat_2">
+							<i class="pe-7s-date"></i>
+							<h3>Gérez facilement vos réservations</h3>
+							<p>Gérez vos prises en charge par SMS. Organisez vos rendez-vous et votre tournée depuis votre agenda Allodoc
+                                .</p>
+						</div>
+						<!-- <div class="box_feat_2">
+							<i class="pe-7s-phone"></i>
+							<h3>Instantanément via le mobile</h3>
+							<p>Eos eu epicuri eleifend suavitate, te primis placerat suavitate his. Nam ut dico intellegat reprehendunt, everti audiam diceret in pri, id has clita consequat suscipiantur.</p>
+						</div> -->
+					</div>
+					<!-- /col -->
+					<div class="col-lg-5 ml-auto">
+						<!-- <form method="post" action="#"></form> -->
+						<div class="box_form">
+							<div id="message-register"></div>
+							<form method="post" id="register_doctor">
+								{% csrf_token %}
+                                {% for field in user_form %}
+								<div class="row">
+									<div class="col-lg-12">
+										<div class="form-group">
+											{{ field.errors }}
+											{{ field.label_tag}}
+											{{ field|add_class:'form-control'}}
+										</div>
+									</div>
+								</div>
+								{% endfor %}					
+                                <div class="row">
+									<div class="col-md-12">
+										<div class="checkbox-holder text-left">
+										<div class="checkbox_2">
+											<input type="checkbox" value="accept_2" id="check_2" name="check_2" checked>
+											<label for="check_2"><span>I Agree to the <strong>Terms &amp; Conditions</strong></span></label>
+										</div>
+									</div>
+									</div>
+								</div><br>
+								<!-- /row -->
+								<div><input type="submit" class="btn_1" value="S'inscrire" id="submit-register"></div>
+							</form>
+						</div>
+						<!-- /box_form -->
+					</div>
+					<!-- /col -->
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /hero_register -->
+	</main>
+	<!-- /main -->
+
+{% endblock %}
+
+{% block scripts %}
+  <!-- SPECIFIC SCRIPTS -->
+    <script src="{% static 'assets/validate.js' %}"></script>
+{% endblock %}
+
+
+

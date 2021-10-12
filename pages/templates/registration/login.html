@@ -1,0 +1,47 @@
+{% extends 'shared/base.html' %}
+
+{% load widget_tweaks %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+{%  block content %}
+
+	<main>
+		<div class="bg_color_2">
+			<div class="container margin_60_35">
+				<div id="login-2">
+					<h1>Veuillez vous connecter à Allodoc si vous êtes docteur !</h1>
+					<form method="post" action="{% url 'pages:login' %}">
+						<div class="box_form clearfix">
+							<div class="box_login">
+								<a href="#0" class="social_bt facebook">Se connecter avec Facebook</a>
+								<a href="#0" class="social_bt google">Se connecter avec  Google</a>
+								<a href="#0" class="social_bt linkedin">Se connecter avec  Linkedin</a>
+							</div>
+							<div class="box_login last">
+								{% csrf_token %}
+								{% for field in form %}
+								<div class="form-group">
+									{{ field.errors }}
+									{{ field.label_tag }}
+									{{ field|add_class:'form-control'}}
+								</div>
+								{% endfor %}
+								<input type="hidden" name="next" value="{{ next }}">
+								<p><input class="btn_1" type="submit" value="Se connecter"></p>
+								
+							</div>
+						</div>
+					</form>
+					<p class="text-center link_bright">Vous n'avez pas encore de compte?  <a href="{% url 'pages:doctor_signup'  %}"> <strong>S'inscrire maintenant!</strong></a></p>
+				</div>
+				<!-- /login -->
+			</div>
+		</div>
+	</main>
+	<!-- /main -->
+
+{% endblock %}
+	

@@ -1,0 +1,96 @@
+
+{% extends "Shared/base.html" %}
+
+{% load widget_tweaks %}
+
+
+{% block title %}
+Réservation
+{% endblock %}
+
+{% block content %}
+
+	
+<main>
+    <div id="breadcrumb">
+        <div class="container">
+            <ul>
+                <li><a href="{% url 'pages:index' %}">Home</a></li>
+                <li><a href="{% url 'pages:doctor_list' %}">Les docteurs</a></li>
+                <li>Réservation</li>
+            </ul>
+        </div>
+    </div>
+    <!-- /breadcrumb -->
+
+    <div class="container margin_60">
+        <div class="row">
+            <div class="col-xl-8 col-lg-8">
+            <div class="box_general_3 cart">
+                <div class="message">
+                    <p>Informations patient</p>
+                </div>
+                <div class="form_title">
+                    <h3><strong>!</strong>Vos détails</h3>
+                    <p>
+                        Mussum ipsum cacilds, vidis litro abertis.
+                    </p>
+                </div>
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="step">
+                        <div class="row">
+                            {% for field in patient_form %}
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    {{ field.label }}<br>
+                                    {{ field.errors }}
+                                    {{ field|add_class:"form-control" }}
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <hr>
+                    <!--End step -->
+                <!--End step -->
+                <div id="policy">
+                    <h4>Politique d'annulation</h4>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" name="policy_terms" id="policy_terms"> J'accepte les termes et conditions et la politique générale..
+                        </label>
+                    </div>
+                    <input type="submit"  href="#0" class="btn_1 medium" value="Valider">
+                </div>
+            </form>    
+            </div>
+            </div>
+            <!-- /col -->
+            <aside class="col-xl-4 col-lg-4" id="sidebar">
+                <div class="box_general_3 booking">
+                    <form>
+                        <div class="title">
+                            <h3>Votre réservation</h3>
+                        </div>
+                        <div class="summary">
+                            <ul>
+                                <li>Date de début: <strong class="float-right">{{ availibity.start_date }}</strong></li>
+                                <li>Date de fin: <strong class="float-right">{{ availibity.end_date }}</strong></li>
+                                <li>Nom du médecin: <strong class="float-right">Dr. {{ doctor.user.last_name }}</strong></li>
+                            </ul>
+                        </div>
+                        <hr>
+                    </form>
+                </div>
+                <!-- /box_general -->
+            </aside>
+            <!-- /asdide -->
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</main>
+<!-- /main -->
+
+{% endblock %}

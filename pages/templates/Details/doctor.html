@@ -1,0 +1,147 @@
+
+{% extends "Shared/base.html" %}
+
+{% load i18n %}
+
+{% load widget_tweaks %}
+
+{% block title %}
+{% endblock %}
+
+{% block content %}
+<main>
+   <div id="breadcrumb">
+      <div class="container">
+         <ul>
+            <li><a href="{% url 'pages:index' %}">Acceuil</a></li>
+            <li><a href="{% url 'pages:doctor_list'%}">Liste des docteurs</a></li>
+            <li>page du docteur {{ doctor.user.first_name }} {{ doctor.user.last_name }}</li>
+         </ul>
+      </div>
+   </div>
+   <!-- /breadcrumb -->
+
+   <div class="container margin_60">
+      <div class="row">
+         <div class="col-xl-8 col-lg-8">
+            <nav id="secondary_nav">
+               <div class="container">
+                  <ul class="clearfix">
+                     <li><a href="#section_1" class="active">Informations générales</a></li>
+                     <li><a href="#sidebar">Booking</a></li>
+                  </ul>
+               </div>
+            </nav>
+            <div id="section_1">
+               <div class="box_general_3">
+                  <div class="profile">
+                     <div class="row">
+                        <div class="col-lg-5 col-md-4">
+                           <figure>
+                              <img src="{{ doctor.photo.url }}"  width="565" height="565" alt="" class="img-fluid">
+                           </figure>
+                        </div>
+                        <div class="col-lg-7 col-md-8">
+                           {% for specialization in doctor.specializations.all %}
+                           <small>{{ specialization.specialization_name }}</small>
+                           {% endfor %}
+                           <h1>DR. {{ doctor.user.first_name }} {{ doctor.user.last_name }}</h1>
+                           <ul class="contacts">
+                              <li>
+                                 <h6>Addresse</h6>
+                                 {{ doctor.street}}, {{ doctor.zip.name }} {{ doctor.city.name }} {{ doctor.state.name }} -
+                                 <a href="https://www.google.com/maps/dir//Assistance+%E2%80%93+H%C3%B4pitaux+De+Paris,+3+Avenue+Victoria,+75004+Paris,+Francia/@48.8606548,2.3348734,14z/data=!4m15!1m6!3m5!1s0x0:0xa6a9af76b1e2d899!2sAssistance+%E2%80%93+H%C3%B4pitaux+De+Paris!8m2!3d48.8568376!4d2.3504305!4m7!1m0!1m5!1m1!1s0x47e67031f8c20147:0xa6a9af76b1e2d899!2m2!1d2.3504327!2d48.8568361" target="_blank"> <strong>Voir sur la carte</strong></a>
+                              </li>
+                              <li>
+                                 <h6>Phone</h6> <a href="tel://000434323342">{{ doctor.phone }}</a></a></li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+                  
+                  <hr>
+                  
+                  <!-- /profile -->
+                  <div class="indent_title_in">
+                     <i class="pe-7s-user"></i>
+                     <h3>Déclaration professionnelle</h3>
+                     <p>Voici sa déclaration professionnelle.</p>
+                  </div>
+                  <div class="wrapper_indent">
+                     <p>{{ doctor.professional_statement }}</p>
+                     <h6>Specialisations</h6>
+                     <div class="row">
+                        <div class="col-lg-6">
+                           
+                           <ul class="bullets">
+                            {% for specialization in doctor.specializations.all %}
+                              <li>{{ specialization.specialization_name }}</li>
+                              {% endfor %} 
+                           </ul>
+                        </div>
+                     </div>
+                     <!-- /row-->
+                  </div>
+                  <!-- /wrapper indent -->
+
+                  <hr>
+
+                  <div class="indent_title_in">
+                     <i class="pe-7s-news-paper"></i>
+                     <h3>Formation(s)</h3>
+                     <p>Diplôme(s) déjà obtenu(s)</p>
+                  </div>
+                  <div class="wrapper_indent">
+                     <h6>Curriculum</h6>
+                     <ul class="list_edu">
+                        {% for qualification in qualifications %}
+                        <li><strong>{{ qualification.qualification_name }}</strong>-{{ qualification.institute_name }}</li>
+                        {% endfor %}
+                     </ul>
+                  </div>
+                  <!--  End wrapper indent -->
+
+                  <hr>
+               </div>
+               <!-- /section_1 -->
+            </div>
+            <!-- /box_general -->
+
+            <div id="section_2">
+            </div>
+            <!-- /section_2 -->
+         </div>
+         <!-- /col -->
+         <aside class="col-xl-4 col-lg-4" id="sidebar">
+            <div class="box_general_3 booking">
+                  <div class="title">
+                  <h3>Reserver une visite</h3>
+                  {% if availibities %}
+                  <small>Disponibilité(s)</small>
+                  {% else %}
+                  <small>N'est pas encore disponible</small>
+                  {% endif %}
+                  </div>
+                  <ul class="treatments clearfix">
+                     <h4>Les disponibilités</h4>
+                     {% for availibity in availibities  %}
+                     {% if not availibity.is_reserved %}
+                     <li>
+                           <label for="visit1" class="css-label"><a href="{% url 'pages:appointment' id=availibity.id name=doctor.user.first_name %}">{{ availibity.name }}<strong> du {{ availibity.start_date }} au {{ availibity.end_date }}</strong></a></label>
+                     </li>
+                     {% endif %}
+                     {% endfor %}
+                  </ul>
+                  <hr>
+                  <!-- /row -->
+            </div>
+            <!-- /box_general -->
+         </aside>
+         <!-- /asdide -->
+      </div>
+      <!-- /row -->
+   </div>
+   <!-- /container -->
+</main>
+<!-- /main -->
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "Shared/base.html" %}
+
+{% block title %}Confirmation d'inscription{% endblock %}
+
+{% block content %}
+<main>
+	<div id="breadcrumb">
+		<div class="container">
+			<ul>
+				<li><a href="{% url 'pages:index' %}">Home</a></li>
+				<li>Page active</li>
+			</ul>
+		</div>
+	</div>
+		<!-- /breadcrumb -->
+
+<div class="container margin_120">
+	<div class="row justify-content-center">
+		<div class="col-lg-8">
+			<div id="confirm">
+			     <div class="icon icon--order-success svg add_bottom_15">
+					<svg xmlns="http://www.w3.org/2000/svg" width="72" height="72">
+					    <g fill="none" stroke="#8EC343" stroke-width="2">
+									<circle cx="36" cy="36" r="35" style="stroke-dasharray:240px, 240px; stroke-dashoffset: 480px;"></circle>
+									<path d="M17.417,37.778l9.93,9.909l25.444-25.393" style="stroke-dasharray:50px, 50px; stroke-dashoffset: 0px;"></path>
+								</g>
+							</svg>
+						</div>
+				<h2>Merci pour votre inscription {{ new_user.first_name }} {{ new_user.last_name }} ! </h2>
+				<p>Veillez vous <a href="{% url 'pages:login' %}">connecter</a> pour accéder à votre profil.</p>
+				</div>
+			</div>
+		</div>
+		<!-- /row -->
+	</div>
+		<!-- /container -->
+</main>
+<!-- /main -->
+{% endblock %}

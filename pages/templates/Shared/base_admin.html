@@ -1,0 +1,181 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="Ansonika">
+  <title>Alldoc - {% block title %}{% endblock %}</title>
+	
+  <!-- Favicons-->
+  <link rel="shortcut icon" href="{% static 'Sub_static/img/favicon.ico' %}" type="image/x-icon">
+  <link rel="apple-touch-icon" type="image/x-icon" href="{% static 'Sub_static/img/apple-touch-icon-57x57-precomposed.png' %}">
+  <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="{% static 'Sub_static/img/apple-touch-icon-72x72-precomposed.png' %}">
+  <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="{% static 'Sub_static/img/apple-touch-icon-114x114-precomposed.png' %}">
+  <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="{% static 'Sub_static/img/apple-touch-icon-144x144-precomposed.png' %}">
+	
+  <!-- Bootstrap core CSS-->
+  <link href="{% static 'Sub_static/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <!-- Icon fonts-->
+  <link href="{% static 'Sub_static/vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+  <!-- Plugin styles -->
+  <link href="{% static 'Sub_static/vendor/datatables/dataTables.bootstrap4.css' %}" rel="stylesheet">
+  <link href="{% static 'Sub_static/vendor/dropzone.css' %}" rel="stylesheet">
+  <!-- Main styles -->
+  <link href="{% static 'Sub_static/css/admin.css' %}" rel="stylesheet">
+  <!-- Your custom styles -->
+  <link href="{% static 'Sub_static/css/admin.css' %}" rel="stylesheet">
+	
+</head>
+
+<body class="fixed-nav sticky-footer" id="page-top">
+  <!-- Navigation-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-default fixed-top" id="mainNav">
+    <a class="navbar-brand" href="{% url 'pages:index' %}"><img src="{% static 'Sub_static/img/logo.png' %}" data-retina="true" alt="" width="163" height="36"></a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="My profile">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseProfile" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-wrench"></i>
+            <span class="nav-link-text">Votre profil</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseProfile">
+            <li>
+              <a href="{% url 'pages:doctor_profile' %}">Votre profil</a>
+            </li>
+            <li>
+              <a href="{% url 'pages:doctor_formations' %}">Mes formations</a>
+            </li>
+            <li>
+              <a href="{% url 'pages:availabilities' %}">Mes disponibilistés</a>
+            </li>
+          </ul>
+    </li>   
+    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Add listing">
+      <a class="nav-link" href="{% url 'pages:doctor_availability' %}">
+        <i class="fa fa-fw fa-plus-circle"></i>
+        <span class="nav-link-text">Ajouter une disponibilité</span>
+      </a>
+    </li> 
+		<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Bookings">
+          <a class="nav-link" href="{% url 'pages:appointments' %}">
+            <i class="fa fa-fw fa-calendar-check-o"></i>
+            <span class="nav-link-text">Mes rendez-vous <span class="badge badge-pill badge-primary">0 au total</span></span>
+          </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav sidenav-toggler">
+        <li class="nav-item">
+          <a class="nav-link text-center" id="sidenavToggler">
+            <i class="fa fa-fw fa-angle-left"></i>
+          </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+          <div class="dropdown-menu" aria-labelledby="messagesDropdown">
+        </li>
+        <li class="nav-item dropdown">
+          </a>
+          <div class="dropdown-menu" aria-labelledby="alertsDropdown">
+            <h6 class="dropdown-header">New Alerts:</h6>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">
+              <span class="text-success">
+                <strong>
+                  <i class="fa fa-long-arrow-up fa-fw"></i>Status Update</strong>
+              </span>
+              <span class="small float-right text-muted">11:21 AM</span>
+              <div class="dropdown-message small">This is an automated server response message. All systems are online.</div>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">
+              <span class="text-danger">
+                <strong>
+                  <i class="fa fa-long-arrow-down fa-fw"></i>Status Update</strong>
+              </span>
+              <span class="small float-right text-muted">11:21 AM</span>
+              <div class="dropdown-message small">This is an automated server response message. All systems are online.</div>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">
+              <span class="text-success">
+                <strong>
+                  <i class="fa fa-long-arrow-up fa-fw"></i>Status Update</strong>
+              </span>
+              <span class="small float-right text-muted">11:21 AM</span>
+              <div class="dropdown-message small">This is an automated server response message. All systems are online.</div>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item small" href="#">View all alerts</a>
+          </div>
+        </li>
+        <li class="nav-item">
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+            <i class="fa fa-fw fa-sign-out"></i>Se déconnecter</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!-- /Navigation-->
+
+  {% block content %}
+  {% endblock %}
+
+  <footer class="sticky-footer">
+    <div class="container">
+      <div class="text-center">
+        <small>Copyright © Allodoc 2021</small>
+      </div>
+    </div>
+  </footer>
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fa fa-angle-up"></i>
+  </a>
+  <!-- Logout Modal-->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Prêt à partir ?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Sélectionnez "Se déconnecter" ci-dessous si vous êtes prêt à terminer votre session en cours.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Annuler</button>
+          <a class="btn btn-primary" href="{% url 'pages:logout' %}">Se déconnecter</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Bootstrap core JavaScript-->
+  <script src="{% static 'Sub_static/vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'Sub_static/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <!-- Core plugin JavaScript-->
+  <script src="{% static 'Sub_static/vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+  <!-- Page level plugin JavaScript-->
+  <script src="{% static 'Sub_static/vendor/chart.js/Chart.min.js' %}"></script>
+  <script src="{% static 'Sub_static/vendor/datatables/jquery.dataTables.js' %}"></script>
+  <script src="{% static 'Sub_static/vendor/datatables/dataTables.bootstrap4.js' %}"></script>
+  <script src="{% static 'Sub_static/vendor/jquery.selectbox-0.2.js' %}"></script>
+  <script src="{% static 'Sub_static/vendor/retina-replace.min.js' %}"></script>
+  <script src="{% static 'Sub_static/vendor/jquery.magnific-popup.min.js' %}"></script>
+  <!-- Custom scripts for all pages-->
+  <script src="{% static 'Sub_static/js/admin.js' %}"></script>
+  {% block scripts %}
+  {% endblock %}
+  
+</body>
+</html>

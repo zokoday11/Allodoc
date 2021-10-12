@@ -1,0 +1,123 @@
+
+{% extends 'Shared/base.html' %}
+
+{% load static %}
+
+{% block title %}Liste des docteurs version grille {% endblock %}
+
+
+{% block content %}
+<main>
+   <div id="results">
+       <div class="container">
+           <div class="row">
+               <div class="col-md-6">
+                   <h4><strong>Les résultats</h4>
+               </div>
+               <div class="col-md-6">
+				<div class="search_bar_list">
+				<input type="text" class="form-control" placeholder="Ex. Spécialiste, Nome, Docteur...">
+				<input type="submit" value="Recherchez">
+			</div>
+               </div>
+           </div>
+           <!-- /row -->
+       </div>
+       <!-- /container -->
+   </div>
+   <!-- /results -->
+   
+   <div class="filters_listing">
+		<div class="container">
+			<ul class="clearfix">
+				<li>
+					<h6>Type</h6>
+					<div class="switch-field">
+						<input type="radio" id="all" name="type_patient" value="all" checked>
+						<label for="all">Tout</label>
+						<input type="radio" id="doctors" name="type_patient" value="doctors">
+						<label for="doctors">Docteurs</label>
+						<input type="radio" id="clinics" name="type_patient" value="clinics">
+						<label for="clinics">Cliniques</label>
+					</div>
+				</li>
+				<li>
+					<h6>Layout</h6>
+					<div class="layout_view">
+						<a href="#0" class="active"><i class="icon-th"></i></a>
+						<a href="{% url 'pages:doctor_list' %}"><i class="icon-th-list"></i></a>
+					</div>
+				</li>
+				<li>
+					<h6>Regrouper par</h6>
+					<select name="orderby" class="selectbox">
+					<option value="Closest">Spécialités</option>
+					<option value="Best rated">Mieux notés</option>
+					<option value="Men">Men</option>
+					<option value="Women">Women</option>
+					</select>
+				</li>
+			</ul>
+		</div>
+		<!-- /container -->
+	</div>
+	<!-- /filters -->
+	   
+	<div class="container margin_60_35">
+		<div class="row">
+			<div class="col-lg-8">
+				<div class="row">
+					{% for doctor in doctors %}
+					<div class="col-md-6">
+						<div class="box_list wow fadeIn">
+							<a href="#0" class="wish_bt"></a>
+							<figure>
+								<a href="{% url 'pages:doctor_detail' doctor.id %}"><img src="{{doctor.photo.url}}" class="img-fluid" alt="">
+									<div class="preview"><span>En savoir plus</span></div>
+								</a>
+							</figure>
+							<div class="wrapper">
+								<small>
+									Spécialité(s)
+								</small>
+								<h3>Dr. {{doctor.user.first_name}} {{doctor.user.last_name}}</h3>
+								<p>{{ doctor.professional_statement|truncatewords:10 }}...</p>
+							</div>
+							<ul>
+								<li><a href="#0" onclick="onHtmlClick('Doctors', 0)"><i class="icon_pin_alt"></i>Montrer sur la carte</a></li>
+								<li><a href="https://www.google.com/maps/dir//Assistance+%E2%80%93+H%C3%B4pitaux+De+Paris,+3+Avenue+Victoria,+75004+Paris,+Francia/@48.8606548,2.3348734,14z/data=!4m15!1m6!3m5!1s0x0:0xa6a9af76b1e2d899!2sAssistance+%E2%80%93+H%C3%B4pitaux+De+Paris!8m2!3d48.8568376!4d2.3504305!4m7!1m0!1m5!1m1!1s0x47e67031f8c20147:0xa6a9af76b1e2d899!2m2!1d2.3504327!2d48.8568361" target="_blank"><i class="icon_pin_alt"></i>Directions</a></li>
+								<li><a href="{% url 'pages:doctor_detail' doctor.id %}">Réservez</a></li>
+							</ul>
+						</div>
+					</div>
+					{% endfor %}
+					<!-- /box_list -->
+
+				</div>
+				<!-- /row -->
+
+				{% include "Shared/pagination.html" with page=doctors %}
+				<!-- /pagination -->
+			</div>
+			<!-- /col -->
+			
+			<aside class="col-lg-4" id="sidebar">
+				<div id="map_listing" class="normal_list">
+				</div>
+			</aside>
+			<!-- /aside -->
+			
+		</div>
+		<!-- /row -->
+	</div>
+	<!-- /container -->
+	</main>
+	<!-- /main -->
+{% endblock %}	
+
+{% block scripts %}
+	<!-- SPECIFIC SCRIPTS -->
+	<script src="http://maps.googleapis.com/maps/api/js"></script>
+    <script src="{% static 'js/map_listing.js' %}"></script>
+    <script src="{% static 'js/infobox.js' %}"></script>
+{% endblock %}
